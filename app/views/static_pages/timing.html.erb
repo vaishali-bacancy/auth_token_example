@@ -1,0 +1,48 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+ <div class="topnav">
+    <a class="active" <%= link_to "Ticket", view_ticket_path %></a>
+    <a <%= link_to "Address", view_address_path %></a>
+    <a <%= link_to "Timing", view_timing_path %></a>
+    <a <%= link_to "Details", view_details_path  %></a>
+    <a <%= link_to "Photos", view_photos_path  %></a>
+    <% if user_signed_in? %>
+    <a <%= link_to "Ratings", view_ratings_path  %></a>
+    <%end%>
+      <div class="search-container">
+        <%= form_tag(view_search_path, method: :get) do %>
+          <%= text_field_tag :search_area, params[:search_area] , placeholder: 'Search area wise'%>
+          <button type="submit"><i class="fa fa-search"></i></button>
+        <% end %>
+      </div>
+    </div>
+  <br>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <h3><b><%= @place.place_name %> timing </b> </h3>
+    <hr> <span class="glyphicon glyphicon-time"></span> Hours:
+    <br>
+    <% days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"] %>
+    <% days=days.rotate(days.index(Time.now.strftime("%A"))) %>
+    <%7.times do |i|%>
+      <%count=days[i]%>
+      <% @ticket=Timing.find_by(day: count)%>
+      <%= days[i]%>
+      <%= @ticket.start_time.strftime("%I:%M %p") %>
+      <%= @ticket.end_time.strftime("%I:%M %p") %>
+      <br>
+    <%end%>
+  </div>
+</div>
+
+<div id="main-container" class="container">
+  <%= yield %>
+</div>
+
+</body>
+</html>

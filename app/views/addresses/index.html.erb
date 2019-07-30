@@ -1,0 +1,39 @@
+<%= flash_messages %>
+
+<h2>Address List</h2>
+<div class="product-block">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+        <th class="col-md-2">Area Name</th>
+        <th class="col-md-2">Road Name</th>
+        <th class="col-md-2">Landmark</th>
+        <th class="col-md-2">City Name</th>
+        <th class="col-md-2">Remarks</th>
+        <th class="col-md-2">Pincode</th>
+        <th class="col-md-2">State</th>
+        <th class="col-xs-2" colspan="2">Options</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @addresses.each do |address| %>
+        <tr>
+          <td class="col-md-2"><%= address.area_name  %></td>
+          <td class="col-md-2"><%= address.road_name  %></td>
+          <td class="col-md-2"><%= address.landmark  %></td>
+          <td class="col-md-2"><%= address.city_name  %></td>
+          <td class="col-md-2"><%= address.remarks  %></td>
+          <td class="col-md-2"><%= address.pincode  %></td>
+          <td class="col-md-2"><%= address.state.state_name  %></td>
+          <td class="col-xs-2">
+            <%= link_to 'Show', address_path(address), class: "btn btn-info" %></td>
+            <td>
+            <%= link_to 'Edit', edit_address_path(address), class: "btn  btn-warning" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<br>

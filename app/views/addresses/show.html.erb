@@ -1,0 +1,40 @@
+<%= flash_messages %>
+<h2>Address</h2>
+
+<p>
+  <strong>Area:</strong>
+  <%= @address.area_name %>
+</p>
+
+<p>
+  <strong>Road Name:</strong>
+  <%= @address.road_name%> 
+</p>
+
+<p>
+  <strong>Landmark:</strong>
+  <%= @address.landmark %>  
+</p>
+
+<p>
+  <strong>City Name:</strong>
+  <%= @address.city_name %>
+</p>
+
+<p>
+  <strong>Remarks:</strong>
+  <%= @address.remarks%>
+</p>
+
+<p>
+  <strong>Pincode:</strong>
+  <%= @address.pincode %>
+</p>
+
+<p>
+ <strong>Address:</strong>
+ <%= @address.state.state_name  %>
+</p>
+ 
+<%= link_to 'Edit', edit_address_path(@address), class: "btn btn-warning" %>
+<%= link_to "Back", addresses_path, class: "btn btn-default" %>

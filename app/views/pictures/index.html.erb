@@ -1,0 +1,36 @@
+<head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
+</head>
+<body>
+<h2>Picture List</h2>
+<%= form_tag(pictures_search_by_path, method: :post) do %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag 'Search', name: nil %>
+<% end %>
+<p id="notice"><%= notice %></p>
+
+
+
+<h1>Pictures</h1>
+  <div class="container"> 
+    <div class="row">
+      <% @pictures.each do |picture| %>
+        <div class="col-md-3 col-sm-4 col-2">          
+          <%= image_tag picture.image_url ,:size => "260x180" %><br>
+          <%= link_to 'Show', picture , class: "btn btn-info"%>
+          <%= link_to 'Edit', edit_picture_path(picture), class: "btn  btn-warning" %>
+          <%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"%>
+        </div>
+      <% end %>
+    </div>  
+  </div>
+<br>
+<%= link_to 'New Picture', new_picture_path , class: "btn btn-primary" %>
+</body>

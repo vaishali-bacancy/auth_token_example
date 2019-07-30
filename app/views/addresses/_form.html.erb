@@ -1,0 +1,58 @@
+<%= form_for (@address) do |f| %>
+  <% if @address.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@address.errors.count, "error") %> prohibited this state from being saved:</h2>
+      <ul>
+      <% @address.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row">
+  <div class="form-group col-md-4">
+    <%= f.label :area_name %><br>
+    <%= f.text_field :area_name, class: "form-control" %>
+  </div>
+  </div>
+  <div class="row">
+  <div class="form-group col-md-4">
+    <%= f.label :road_name %><br>
+    <%= f.text_field :road_name, class: "form-control" %>
+  </div>
+  </div>
+  <div class="row">
+  <div class="form-group col-md-4">
+    <%= f.label :landmark %><br>
+    <%= f.text_field :landmark, class: "form-control" %>
+  </div>
+  </div>
+  <div class="row">
+  <div class="form-group col-md-4">
+    <%= f.label :city_name %><br>
+    <%= f.text_field :city_name, class: "form-control" %>
+  </div>
+  </div>
+  <div class="row">
+  <div class="form-group col-md-4">
+    <%= f.label :remarks %><br>
+    <%= f.text_field :remarks, class: "form-control" %>
+  </div>
+  </div>
+  <div class="row">
+  <div class="form-group col-md-4">
+    <%= f.label :pincode %><br>
+    <%= f.text_field :pincode, class: "form-control" %>
+  </div>
+  </div>
+  <div class="row">
+  <div class="form-group col-md-4">
+  <%= f.label :state_name %><br>
+   <% state_arr=State.all.map{|i| [i.state_name]} %>
+  <%= f.collection_select :state_id, State.order(:id), :id,:state_name, class: "form-control" %>
+  </div>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Create', class: "btn btn-primary" %>
+  </div>
+<% end %>

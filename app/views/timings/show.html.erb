@@ -1,0 +1,22 @@
+<%= flash_messages %>
+<p>
+  <strong>Place_name:</strong>
+  <%= @timing.place.place_name %>
+</p>
+<p>
+  <strong>Day:</strong>
+  <%= @timing.day %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @timing.start_time %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @timing.end_time %>
+</p>
+
+<%= link_to 'Edit', edit_timing_path(@timing) , class: "btn btn-warning" %> |
+<%= link_to 'Back', timings_path , class: "btn btn-default"%>

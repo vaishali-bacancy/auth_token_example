@@ -1,0 +1,46 @@
+<%= flash_messages %>
+
+<h2>Place List</h2>
+<div class="product-block">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+    <tr>
+      <th class="col-md-2">Place name</th>
+      <th class="col-md-2">Place type</th>
+      <th class="col-md-2">Phone number</th>
+      <th class="col-md-2">Area Name</th>
+      <th class="col-md-2">Road Name</th>
+      <th class="col-md-2">Landmark</th>
+      <th class="col-md-2">City Name</th>
+      <th class="col-md-2">Remarks</th>
+      <th class="col-md-2">Pincode</th>
+      <th class="col-md-2">State</th>
+      <th class="col-md-4" colspan="3">Options</th>
+      </tr>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @places.each do |place| %>
+      <tr>
+        <td class="col-md-2"><%= place.place_name %></td>
+        <td class="col-md-2"><%= place.place_type %></td>
+        <td class="col-md-2"><%= place.phone_number %></td>
+        <td class="col-md-2"><%= place.address.area_name  %></td>
+        <td class="col-md-2"><%= place.address.road_name  %></td>
+        <td class="col-md-2"><%= place.address.landmark  %></td>
+        <td class="col-md-2"><%= place.address.city_name  %></td>
+        <td class="col-md-2"><%= place.address.remarks  %></td>
+        <td class="col-md-2"><%= place.address.pincode  %></td>
+        <td class="col-md-2"><%= place.address.state.state_name  %></td>
+        <td><%= link_to 'Show', place_path(place), class: "btn btn-info"%></td>
+        <td><%= link_to 'Edit', edit_place_path(place), class: "btn  btn-warning" %></td>
+        <td><%= link_to 'Destroy', place_path(place), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+      </tr>
+    <% end %> 
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Place', new_place_path, class: "btn btn-primary" %>

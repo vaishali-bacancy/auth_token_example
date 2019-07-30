@@ -1,0 +1,20 @@
+<%= flash_messages %>
+
+<p>
+  <strong>Place_name:</strong>
+  <%= @ticket.place.place_name %>
+</p>
+<p>
+  <strong>Ticket type:</strong>
+  <%= @ticket.ticket_type %>
+</p>
+
+<p>
+  <strong>Ticket price:</strong>
+  <%= @ticket.ticket_price %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_ticket_path(@ticket) , class: "btn btn-warning" %> |
+<%= link_to 'Back', tickets_path , class: "btn btn-default"%>

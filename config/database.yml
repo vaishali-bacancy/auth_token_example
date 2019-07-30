@@ -1,0 +1,13 @@
+default: &default 
+  adapter: postgresql 
+  encoding: unicode 
+  pool: 5
+  username: postgres
+  password: postgres
+  host: localhost # If the DB is setup on local machine then use: localhost
+  # adapter: postgresql
+  # encoding: unicode
+  # pool: 11
+development: 
+  <<: *default
+  database: picnic_info

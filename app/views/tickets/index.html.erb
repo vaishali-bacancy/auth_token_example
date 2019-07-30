@@ -1,0 +1,33 @@
+<h2>Tickets List</h2>
+<%= form_tag(tickets_search_by_path, method: :post) do %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag 'Search', name: nil %>
+<% end %>
+
+<div class="product-block">
+  <table class="table table-striped table-bordered table-hover">
+  <thead>
+    <tr>
+      <th class="col-md-2">Ticket type</th>
+      <th class="col-md-2">Ticket price</th>
+      <th class="col-md-2">Place Name</th>
+      <th class="col-md-4"colspan="3"> Options</th>
+    </tr>
+  </thead>
+
+<tbody>
+  
+   <% @tickets.each do |ticket| %>
+      <tr>
+        <td class="col-md-2"><%= ticket.ticket_type %></td>
+        <td class="col-md-2"><%= ticket.ticket_price %></td>
+        <td class="col-md-2"><%= ticket.place.place_name %></td>
+        <td><%= link_to 'Show', ticket, class: "btn btn-info"%></td>
+        <td><%= link_to 'Edit', edit_ticket_path(ticket), class: "btn  btn-warning" %></td>
+        <td><%= link_to 'Destroy', ticket_path(ticket), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+      </tr>
+      <%end%>
+  </tbody>
+</table>
+<br>
+<%= link_to 'New Ticket', new_ticket_path , class: "btn btn-primary" %>

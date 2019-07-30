@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @picture.title %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @picture.image_url , :size => "260x180" %>
+</p>
+
+<p>
+  <strong>Place:</strong>
+
+  <%= @picture.place.place_name %>
+</p>
+
+<%= link_to 'Edit', edit_picture_path(@picture), class: "btn btn-warning" %> |
+<%= link_to 'Back', pictures_path, class: "btn btn-default" %>

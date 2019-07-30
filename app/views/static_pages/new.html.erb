@@ -1,0 +1,8 @@
+<center>
+<h2>Enter the place name </h2>
+<br>
+<%= form_tag(static_pages_path, method: :get) do %>
+  <%= text_field_tag :search, params[:search],placeholder: 'Search...' %>
+  <%= submit_tag 'Search', name: nil %>
+<% end %>
+</center>

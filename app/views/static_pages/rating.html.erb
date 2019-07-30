@@ -1,0 +1,4 @@
+<h2><%= @place.place_name %></h2>
+<% if user_signed_in? %>
+  <%= rating_for @place, "place_name" %>
+<%end %>
