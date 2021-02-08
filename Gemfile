@@ -15,7 +15,7 @@ gem 'devise'
 gem 'cancancan', '~> 1.10'
 gem 'rolify'
 gem 'geocoder'
-gem "carrierwave", '~> 1.0'
+gem "carrierwave", '~> 1.3'
 gem "fog-aws"
 gem 'fog'
 gem "mini_magick"
